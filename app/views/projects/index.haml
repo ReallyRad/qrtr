@@ -1,0 +1,10 @@
+-@projects.each do |p|
+ .edit
+  = link_to "edit", edit_project_path(p.id)
+ .project{:id => "#{p.id}"}
+  .project_title
+   = p.title
+  %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :height => "430", :src => "http://www.youtube.com/embed/#{p.videos.first.link}", :title => "YouTube video player", :width => "640"}
+  .project_description
+   = p.description
+

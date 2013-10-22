@@ -1,0 +1,23 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.project {
+  border-color: blue;
+  border-radius: 5;
+}
+
+
+.project_title {
+  font-family: "Courier New";
+  font-size: 5em;
+  border-color: red;
+  border-radius: 1  5;
+}
+
+.project_description {
+  font-family: "Courier New";
+  border-color: yellow;
+  background-color: orange;
+  width: 940;
+}

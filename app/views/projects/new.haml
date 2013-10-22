@@ -1,0 +1,4 @@
+.new_project
+ =form_for @project do |f|
+  - @project.videos.build
+  = render :partial => "project_fields", :locals => {:f => f}

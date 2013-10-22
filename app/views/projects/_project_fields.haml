@@ -1,0 +1,21 @@
+.fields
+
+ .project_title
+  = f.label :title
+  = f.text_field :title
+
+ .project_description
+  = f.label :description
+  = f.text_area :description
+
+ .project_videos
+  = f.fields_for :videos, @project.videos do |ff|
+   = render :partial => 'video_fields', :locals => {:f => ff}
+
+ .project_save
+  = f.submit :save
+
+// .project_tools
+//  = f.select :tools, Tool.all
+
+//= link_to_remove_fields "remove", f
