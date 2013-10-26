@@ -1,9 +1,10 @@
 set :application, 'qrtr'
-set :repo_url, 'git://github.com/ReallyRad/qrtr.git'
+set :repo_url, 'git@github.com:ReallyRad/qrtr.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-set :deploy_to, '/var/www/my_app' #You’ll need to make sure you’ve configured your web server (whichever one you choose) to look at [deploy_to]/current/public as the root web directory for your application.
+set :default_env, { rvm_bin_path: '~/.rvm/bin' }
+set :deploy_to, '/var/www/qrtr'
 set :scm, :git
 
 # set :format, :pretty
@@ -18,39 +19,29 @@ set :scm, :git
 
 namespace :deploy do
 
-  desc "Tell Passenger to restart the app."
-  task :restart do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-
   desc "Symlink shared configs and folders on each release."
-  task :symlink_shared do
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
-  end
-
-  desc "Sync the public/assets directory."
-  task :assets do
-    system "rsync -vr --exclude='.DS_Store' public/assets #{user}@#{application}:#{shared_path}/"
-  end
+    task :symlink_shared do
+      on roles (:app) do
+        execute "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+        execute "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
+      end
+    end
 
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+       execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+       within release_path do
+         execute :rake, 'cache:clear'
+       end
     end
   end
 
-  after :finishing, 'deploy:cleanup'
-
+  after :deploy, 'deploy:restart'
+  before 'deploy:migrate', 'deploy:symlink_shared'
 end
