@@ -33,7 +33,7 @@ namespace :deploy do
        execute :touch, release_path.join('tmp/restart.txt')
     end
   end
-
+=begin
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
        within release_path do
@@ -41,7 +41,7 @@ namespace :deploy do
        end
     end
   end
-
+=end
   after :deploy, 'deploy:restart'
   before 'deploy:migrate', 'deploy:symlink_shared'
 end
