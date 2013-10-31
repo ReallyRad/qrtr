@@ -6,11 +6,18 @@
 
  .project_description
   = f.label :description
+ .project_description_text_area
   = f.text_area :description
 
  .project_videos
-  = f.fields_for :videos, @project.videos do |ff|
-   = render :partial => 'video_fields', :locals => {:f => ff}
+  = f.fields_for :videos do |video_form|
+   = render :partial => 'video_fields', :locals => {:f => video_form}
+  = f.link_to_add 'Add a video', :videos
+
+ .project_pictures
+  = f.fields_for :pictures do |picture_form|
+   = render :partial => 'picture_fields', :locals => {:f => picture_form}
+  = f.link_to_add 'Add another picture', :pictures
 
  .project_save
   = f.submit :save

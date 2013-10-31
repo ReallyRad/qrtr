@@ -11,13 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610162821) do
+ActiveRecord::Schema.define(:version => 20131030155521) do
 
   create_table "made_withs", :force => true do |t|
     t.integer  "tool_id"
     t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "name"
+    t.integer  "imageable_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "image"
+    t.string   "imageable_type"
   end
 
   create_table "projects", :force => true do |t|

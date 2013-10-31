@@ -1,22 +1,5 @@
 .new_project_video
  .fields
-
   = f.label :video_link
   = f.text_field :link
-
-  = f.hidden_field :project_id, :value => @project.id
-
-//.new_project_video
-// .fields
-
-//  = f.fields_for :video, @video do |ff|
-//  = ff.label :video_title
-//  = ff.text_field :title
-
-//  = ff.label :video_description
-//  = ff.text_field :description
-
-//  = ff.label :video_link
-//  = ff.text_field :link
-
-//  = ff.hidden_field :project_id => @project.id
+  = f.link_to_remove 'Remove this video'

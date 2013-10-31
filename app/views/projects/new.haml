@@ -1,4 +1,5 @@
 .new_project
- =form_for @project do |f|
-  - @project.videos.build
-  = render :partial => "project_fields", :locals => {:f => f}
+ = nested_form_for @project, :html => {:multipart => true} do |f|
+  = render :partial => 'project_fields', :locals => {:f => f}
+
+  -# @project.videos.build

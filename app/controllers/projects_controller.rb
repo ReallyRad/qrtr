@@ -6,7 +6,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    Video.new(:project_id => @project.id)
     render 'projects/new'
   end
 
@@ -28,6 +27,9 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(params[:project])
       flash[:success]="Project updated!"
       index
+    else
+      flash[:error]=@project.errors
+      edit
     end
 
   end
