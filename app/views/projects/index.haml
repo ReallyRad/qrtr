@@ -4,6 +4,7 @@
    %h4
     =p.title
    .project_image
-    =image_tag p.pictures.first.image_url
+    -if !p.pictures.first.nil?
+     =image_tag p.pictures.first.image_url
    .project_description
     =truncate(p.description, :length => 150, :omission => "...")

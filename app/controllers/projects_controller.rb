@@ -31,6 +31,17 @@ class ProjectsController < ApplicationController
       flash[:error]=@project.errors
       edit
     end
-
   end
+
+  def destroy
+    @project = Project.find(params[:id])
+    if @project.destroy
+      flash[:success]="Project deleted"
+      index
+    else
+      flash[:error]=@project.errors
+      index
+    end
+  end
+
 end

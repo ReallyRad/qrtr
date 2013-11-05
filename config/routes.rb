@@ -1,7 +1,7 @@
 Qrtr::Application.routes.draw do
 
-  resources :projects, :except => [:index]
-
+  resources :projects, :except => [:index, :destroy]
+  match 'destroy_project/:id' => 'projects#destroy', :as => 'destroy_project'
   root :to => 'projects#index'
 
   # The priority is based upon order of creation:
