@@ -1,0 +1,5 @@
+.new_project_picture
+ .fields
+  = f.label :image
+  = f.file_field :image
+  = f.link_to_remove 'Remove this video'
