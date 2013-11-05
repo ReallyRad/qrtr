@@ -2,7 +2,7 @@ class CreatePictures < ActiveRecord::Migration
   def change
     create_table :pictures do |t|
       t.string :name
-      t.references :imageable
+      t.references :imageable, :polymorphic => true
       t.string :image
       t.timestamps
     end
