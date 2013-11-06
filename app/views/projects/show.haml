@@ -2,10 +2,10 @@
  .project_title
   %h4
    =@project.title
- .project_video
+ .flex-video
   -if !@project.videos.first.nil?
    -@project.videos.each do |v|
-    %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :src => "http://www.youtube.com/embed/#{v.link}", :title => @project.title, :width => "1280", :height => "720"}
+    %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :src => "http://www.youtube.com/embed/#{v.link}", :title => @project.title, :width => "800", :height => "600"}
  .project_description
   %p
    =@project.description
