@@ -9,6 +9,11 @@ class ProjectsController < ApplicationController
     render 'projects/new'
   end
 
+  def show
+    @project = Project.find params[:id]
+    render 'projects/show'
+  end
+
   def create
     @project = Project.new params[:project]
     if @project.save

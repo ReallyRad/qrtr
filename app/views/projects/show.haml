@@ -1,0 +1,17 @@
+.project
+ .project_title
+  %h4
+   =@project.title
+ .project_video
+  -if !@project.videos.first.nil?
+   -@project.videos.each do |v|
+    %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :src => "http://www.youtube.com/embed/#{v.link}", :title => @project.title, :width => "1280", :height => "720"}
+ .project_description
+  %p
+   =@project.description
+ .project_image
+  -if !@project.pictures.first.nil?
+   %ul.small-block-grid-2
+    -@project.pictures.each do |p|
+     %li.project_image
+      =image_tag p.image_url
