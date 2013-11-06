@@ -21,9 +21,7 @@
  .project_save
   = f.submit :save
 
- .delete_project
-  = link_to 'Delete project', destroy_project_path(@project), :confirm => 'Are you sure?', :method => :destroy
-// .project_tools
+/ .project_tools
 //  = f.select :tools, Tool.all
 
 //= link_to_remove_fields "remove", f
