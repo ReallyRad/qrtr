@@ -1,5 +1,6 @@
 .new_project_picture
  .fields
-  = f.label :image
   = f.file_field :image
-  = f.link_to_remove 'Remove this video'
+  -if !f.object.image_url.nil?
+   = image_tag f.object.image_url
+  = f.link_to_remove 'Remove this picture'

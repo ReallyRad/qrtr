@@ -1,5 +1,7 @@
 .new_project_video
  .fields
   = f.label :video_link
+  - if !f.object.link.nil?
+   %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :src => "http://www.youtube.com/embed/#{f.object.link}", :title => @project.title, :width => "320", :height => "240"}
   = f.text_field :link
   = f.link_to_remove 'Remove this video'

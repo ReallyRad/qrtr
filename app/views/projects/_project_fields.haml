@@ -16,7 +16,7 @@
  .project_pictures
   = f.fields_for :pictures do |picture_form|
    = render :partial => 'picture_fields', :locals => {:f => picture_form}
-  = f.link_to_add 'Add another picture', :pictures
+  = f.link_to_add 'Add a picture', :pictures
 
  .project_save
   = f.submit :save

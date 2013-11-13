@@ -12,12 +12,17 @@ set :scm, :git
 # set :pty, true
 
 # set :linked_files, %w{config/database.yml}
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+#set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 # set :keep_releases, 5
 
+
 namespace :deploy do
+
+  task :symlink_uploads do
+    run "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
+  end
 
   desc "Symlink shared configs and folders on each release."
     task :symlink_shared do
@@ -44,4 +49,5 @@ namespace :deploy do
 =end
   after :deploy, 'deploy:restart'
   before 'deploy:migrate', 'deploy:symlink_shared'
+  after 'deploy:symlink_shared', 'deploy:symlink_uploads'
 end
