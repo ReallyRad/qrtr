@@ -21,7 +21,9 @@ set :scm, :git
 namespace :deploy do
 
   task :symlink_uploads do
-    run "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
+    on roles (:app) do
+      execute "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
+    end
   end
 
   desc "Symlink shared configs and folders on each release."
