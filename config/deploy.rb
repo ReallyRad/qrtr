@@ -22,14 +22,14 @@ namespace :deploy do
 
   task :symlink_uploads do
     on roles (:app) do
-      execute "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
+      execute "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     end
   end
 
   desc "Symlink shared configs and folders on each release."
     task :symlink_shared do
       on roles (:app) do
-        execute "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+        execute "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
         execute "ln -nfs #{shared_path}/assets #{release_path}/public/assets"
       end
     end
