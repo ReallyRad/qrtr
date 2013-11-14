@@ -18,4 +18,5 @@ module ProjectsHelper
     full_text = link_to(topic.title, topic) + ' - ' + topic.description_without_embed
 
   end
+
 end
