@@ -23,6 +23,7 @@ namespace :deploy do
   task :symlink_uploads do
     on roles (:app) do
       execute "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      execute "chmod -R g+s #{release_path}/tmp"
     end
   end
 
