@@ -931,12 +931,12 @@ $default-float: left;
 
 // We use these to control the title styles
 
-// $price-title-bg: #ddd;
-// $price-title-padding: em-calc(15 20);
-// $price-title-align: center;
-// $price-title-color: #333;
-// $price-title-weight: bold;
-// $price-title-size: em-calc(16);
+ $price-title-bg: #ddd;
+ $price-title-padding: em-calc(15 20);
+ $price-title-align: center;
+ $price-title-color: #333;
+ $price-title-weight: bold;
+ $price-title-size: em-calc(16);
 
 // We use these to control the price styles
 
@@ -1255,13 +1255,13 @@ $default-float: left;
 
 // Background color for the top bar
 
-// $topbar-bg-color: #111;
-// $topbar-bg: $topbar-bg-color;
+ $topbar-bg-color: #111;
+ $topbar-bg: $topbar-bg-color;
 
 // Height and margin
 
-// $topbar-height: 45px;
-// $topbar-margin-bottom: 0;
+ $topbar-height: 80px;
+ $topbar-margin-bottom: 0;
 
 // Control Input height for top bar
 
@@ -1269,8 +1269,8 @@ $default-float: left;
 
 // Controlling the styles for the title in the top bar
 
-// $topbar-title-weight: bold;
-// $topbar-title-font-size: em-calc(17);
+ $topbar-title-weight: bold;
+ $topbar-title-font-size: em-calc(80);
 
 // Style the top bar dropdown elements
 
