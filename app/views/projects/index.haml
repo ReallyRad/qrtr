@@ -1,6 +1,6 @@
-%ul.small-3.columns
- -@projects.each do |p|
-  %li{:id => p.id, :class => "project"}
+-@projects.each do |p|
+ .small-3.columns
+  .project{:id=>p.id}
    %h4
     =p.title
    .project_image
