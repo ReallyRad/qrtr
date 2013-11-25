@@ -9,11 +9,11 @@
   %title
    = content_for?(:title) ? yield(:title) : "qrtr"
 %body
- .fixed
-  %nav{:class=>'top-bar'}
-   %ul{:class=>'title-area'}
-    %li{:class=>'name'}
-     %h1
-      = link_to :Qrtr, root_path
- .container
+ %nav{:class=>'top-bar fixed'}
+  %ul{:class=>'title-area'}
+   %li{:class=>'name'}
+    %h1
+     = link_to :Qrtr, root_path
+%section{:role=>'main'}
+ .row
   = yield
