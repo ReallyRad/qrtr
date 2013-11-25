@@ -160,7 +160,7 @@ $default-float: left;
 // We use this to control the maximum number of block grid elements per row
 
 // $block-grid-elements: 12;
-// $block-grid-default-spacing: em-calc(20);
+ $block-grid-default-spacing: em-calc(15);
 
 // Enables media queries for block-grid classes. Set to false if writing semantic HTML.
 
@@ -1261,7 +1261,7 @@ $default-float: left;
 // Height and margin
 
  $topbar-height: 80px;
- $topbar-margin-bottom: 25;
+ $topbar-margin-bottom: 0;
 
 // Control Input height for top bar
 

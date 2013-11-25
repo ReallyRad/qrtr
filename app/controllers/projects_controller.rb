@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
       flash[:success]="Project updated!"
-      index
+      show
     else
       flash[:error]=@project.errors
       edit
