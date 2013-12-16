@@ -1,3 +1,4 @@
+-require BB
 .project
  .project_title
   %h4
@@ -8,7 +9,7 @@
     %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :src => "http://www.youtube.com/embed/#{v.link}", :title => @project.title, :width => "800", :height => "600"}
  .project_description
   %p
-   =@project.description.gsub("\n", "<br>").html_safe
+   =@project.description.gsub("\n", "<br>").bbcode_to_html
  .project_image
   -if !@project.pictures.first.nil?
    %ul.small-block-grid-2
