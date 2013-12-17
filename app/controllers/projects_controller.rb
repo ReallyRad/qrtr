@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-   @projects = Project.all
+     @projects = Project.all(:order => 'updated_at desc' )
    render 'projects/index'
   end
 

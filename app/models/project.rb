@@ -11,4 +11,5 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :videos, :allow_destroy => true
 
   validates_presence_of :pictures, :videos, :description
+  validate
 end

@@ -1,15 +1,14 @@
--require BB
 .project
  .project_title
   %h4
    =@project.title
- .flex-video
-  -if !@project.videos.first.nil?
-   -@project.videos.each do |v|
-    %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :src => "http://www.youtube.com/embed/#{v.link}", :title => @project.title, :width => "800", :height => "600"}
+   -if !@project.videos.first.nil?
+    -@project.videos.each do |v|
+     .flex-video
+      %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", :frameborder => "0", :src => "http://www.youtube.com/embed/#{v.link}", :title => @project.title, :width => "800", :height => "600"}
  .project_description
   %p
-   =@project.description.gsub("\n", "<br>").bbcode_to_html
+   =@project.description.bbcode_to_html.gsub("\n", "<br>").html_safe
  .project_image
   -if !@project.pictures.first.nil?
    %ul.small-block-grid-2
