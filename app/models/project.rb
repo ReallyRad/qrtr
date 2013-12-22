@@ -10,13 +10,15 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :pictures, :allow_destroy => true
   accepts_nested_attributes_for :videos, :allow_destroy => true
 
-  validates_presence_of :pictures, :videos, :description
+  validates_presence_of :pictures, :description, :title
   validate :bbcode_correct
 
   def bbcode_correct
-    errors.add :description, description.is_valid_bbcode?
+    valid = description.is_valid_bbcode?
+    if valid.is_a? String
+     errors.add :in_description, valid
+    end
     tata="totot"
-
   end
 
 end

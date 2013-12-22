@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+//global scope styles, should be moved to separate stylesheet
 body
   background: no-repeat center center fixed
   background-image: url(https://gs1.wac.edgecastcdn.net/8019B6/data.tumblr.com/bcd89f0f5ff38c2a7101e318e97235c3/tumblr_mvrnk7Gffc1qzcdbeo1_250.gif)
@@ -9,6 +11,18 @@ body
   -moz-background-size: cover
   -o-background-size: cover
   background-size: cover
+
+
+.field_with_errors
+  textarea
+    border-color: rgb(253, 127, 129)
+    background-color: rgb(253, 243, 251)
+    border-width: 3px
+
+  input
+    border-color: rgb(253, 127, 129)
+    background-color: rgb(253, 243, 251)
+    border-width: 3px
 
 .top-bar
   -moz-box-shadow:    0px 3px 1px 3px #111

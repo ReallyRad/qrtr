@@ -1,3 +1,12 @@
 .edit_project
+ -if @project.errors.any?
+  .error_explanation
+   %h2
+    = "oh noes! " + pluralize(@project.errors.count, 'error') + ' prohibited this project from being saved :('
+   %ul
+    -@project.errors.full_messages.each do |msg|
+     %li
+      = msg
+
  = nested_form_for @project, :html => {:multipart => true} do |f|
   = render :partial => 'project_fields', :locals => {:f => f}
