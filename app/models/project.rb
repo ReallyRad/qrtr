@@ -18,7 +18,6 @@ class Project < ActiveRecord::Base
     if valid.is_a? String
      errors.add :in_description, valid
     end
-    tata="totot"
   end
 
 end

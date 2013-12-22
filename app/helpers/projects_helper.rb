@@ -1,4 +1,9 @@
 module ProjectsHelper
+
+  def truncate_html
+
+  end
+
   def compute_column i
     if (i == 1)
       return 4
