@@ -24,11 +24,8 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    unless params[:error]
-      @project = Project.find(params[:id])
-    else
-
-    end
+    dodo="da"
+    @project = Project.find params[:id] unless !@project.nil?
     render 'projects/edit'
   end
 
