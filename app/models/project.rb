@@ -15,6 +15,8 @@ class Project < ActiveRecord::Base
 
   def bbcode_correct
     errors.add :description, description.is_valid_bbcode?
+    tata="totot"
+
   end
 
 end

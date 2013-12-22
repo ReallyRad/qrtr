@@ -24,17 +24,21 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
+    unless params[:error]
+      @project = Project.find(params[:id])
+    else
+
+    end
     render 'projects/edit'
   end
 
   def update
     @project = Project.find(params[:id])
-    if @project.update_attributes(params[:project])
-      flash[:success]="Project updated!"
+    if @project.update_attributes params[:project]
+      flash[:success] = "Project updated!"
       show
     else
-      flash[:error]=@project.errors
+      flash[:error] = @project.errors
       edit
     end
   end

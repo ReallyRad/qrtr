@@ -1,4 +1,5 @@
 class CreatePictures < ActiveRecord::Migration
+=begin
   def change
     create_table :pictures do |t|
       t.string :name
@@ -7,4 +8,5 @@ class CreatePictures < ActiveRecord::Migration
       t.timestamps
     end
   end
+=end
 end
