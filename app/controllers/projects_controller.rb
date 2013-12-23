@@ -1,3 +1,5 @@
+require 'tilt/nokogiri'
+
 class ProjectsController < ApplicationController
 
   def index

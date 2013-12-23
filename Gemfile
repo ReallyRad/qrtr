@@ -20,7 +20,6 @@ group :production do
 end
 
 gem 'mysql2'
-
 gem 'haml'
 
 # Gems used only for assets and not required
@@ -36,3 +35,4 @@ end
 gem 'jquery-rails'
 
 gem 'ruby-bbcode'
+gem 'nokogiri'
