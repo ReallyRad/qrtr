@@ -6,5 +6,5 @@
    .project_image
     -if !p.pictures.first.nil?
      = link_to(image_tag(p.pictures.first.image_url), project_url(p.id))
-   .project_description
+   .project_description_small
     = p.description.bbcode_to_html.gsub("\n", "<br>").html_safe
