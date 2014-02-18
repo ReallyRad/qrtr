@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131221234442) do
+ActiveRecord::Schema.define(:version => 20140218181707) do
 
   create_table "made_withs", :force => true do |t|
     t.integer  "tool_id"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20131221234442) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "link"
+    t.string   "origin"
+    t.integer  "provider_id"
   end
 
 end
