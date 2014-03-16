@@ -3,6 +3,6 @@
   = f.label :video_link
   -if !f.object.new_record?
    .flex-video{:class => class_from_origin(f.object.origin)}
-   %iframe{:src => embed_link_from_origin(f.object.origin), :title => @project.title, :width => "320", :height => "240", :webkitAllowFullScreen => true, :mozallowfullscreen => true, :allowscriptaccess => "always",  :allowFullScreen => "true", :frameborder => "0"}
+    %iframe{:src => embed_link_from_origin(f.object.origin), :title => @project.title, :width => "320", :height => "240", :webkitAllowFullScreen => true, :mozallowfullscreen => true, :allowscriptaccess => "always",  :allowFullScreen => "true", :frameborder => "0"}
   = f.text_field :origin
   = f.link_to_remove 'Remove this video'
