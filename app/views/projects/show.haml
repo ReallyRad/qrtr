@@ -4,9 +4,8 @@
    =@project.title
    -@video=@project.videos.first
    -if !@video.nil?
-    -#@project.videos.each do |v|
-     .flex-video{:class => v.origin}
-      %iframe{:src => embed_link_from_origin(v), :title => @project.title, :width => "320", :height => "240", :webkitAllowFullScreen => true, :mozallowfullscreen => true, :allowscriptaccess => "always",  :allowFullScreen => "true", :frameborder => "0"}
+    .flex-video{:class => @video.origin}
+     %iframe{:src => embed_link_from_origin(@video.origin), :title => @project.title, :width => "320", :height => "240", :webkitAllowFullScreen => true, :mozallowfullscreen => true, :allowscriptaccess => "always",  :allowFullScreen => "true", :frameborder => "0"}
  .project_description
   %p
    =@project.description.bbcode_to_html.gsub("\n", "<br>").html_safe
